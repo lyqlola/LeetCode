@@ -1,0 +1,23 @@
+class Solution:
+    def findCheapestPrice(self, n, flights, src, dst, K):
+        """
+        :type n: int
+        :type flights: List[List[int]]
+        :type src: int
+        :type dst: int
+        :type K: int
+        :rtype: int
+        """
+        # dp[v] 表示从起点src出发，到v，正好经过K次跳转的最低价格
+        dp = [float('inf')] * n
+        dp[src] = 0
+        ans = dp[dst]
+        for k in range(K + 1):
+            temp = [float('inf')] * n
+            for flight in flights:
+                u, v, w = flight
+                temp[v] = min(temp[v], dp[u] + w)
+            dp = temp
+            ans = min(ans, dp[dst])
+        
+        return -1 if ans == float('inf') else ans
