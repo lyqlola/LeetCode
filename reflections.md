@@ -22,4 +22,4 @@ TypeError: 'str' object does not support item assignment
 def lowestCommonAncestor(self, root, p, q）
 记p,q的LCA为ans，则构成一棵以ans为根的子树，且p,q分别位于此子树的左右子树，下图表示出了p,q,ans的3种可能结构。此子树外的任何节点值要么大于both p&q，要么小于both p&q。因此要找的LCA(ans)即为binary search过程中遇到第一个 >=p && <= q 的节点。
 
-<img src="/Users/lyqlola/Desktop/1.jpg" width = "200" height = "100" div align=center />
+<img src="LCA.jpg" width = "250" height = "100" div align=center />
